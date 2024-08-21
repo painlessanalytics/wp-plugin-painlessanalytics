@@ -88,6 +88,7 @@
             // Test the tracking URL, if it is valid then save it, otherwise let them know it is not valid and clear the track_url value
             $testResults = self::testTrackUrl($trackUrl);
             if( is_wp_error($testResults) ) {
+                /* translators: The placeholder is a WP_Error message. */
                 $errorMessage = sprintf(__('An error occurred. %s', 'painlessanalytics'), $testResults->get_error_message() );
             } else if( $testResults === false ) {
                 $errorMessage = __('The provided Painless Analytics embed code is invalid.', 'painlessanalytics');
@@ -179,9 +180,7 @@
 		) ) ) {
 
             $cssPath = 'css/styles.css';
-            if( defined('PAINLESSANALYTICS_VIEWS_BETA') && file_exists( dirname(__FILE__). '/css/styles-beta.css') ) {
-                $cssPath = 'css/styles-beta.css';
-            }
+            
             wp_register_style( 'painlessanalytics-admin', plugin_dir_url( __FILE__ ) . $cssPath, array(), filemtime( dirname( __FILE__ ) . '/' . $cssPath ) );
             wp_enqueue_style( 'painlessanalytics-admin' );
         }
@@ -246,11 +245,8 @@
     * plugin_action_links_no( $name, $args = array() ) 
     */
     public static function view( $name, $args = array() ) {
-        if( defined('PAINLESSANALYTICS_VIEWS_BETA') ) {
-            $file = dirname(__FILE__) . '/views-beta/'. $name . '.php';
-        } else {
-            $file = dirname(__FILE__) . '/views/'. $name . '.php';
-        }
+
+        $file = dirname(__FILE__) . '/views/'. $name . '.php';
 		
         if( file_exists($file) ) {
             include( $file );

@@ -1,6 +1,6 @@
                 <a  href="https://www.painlessanalytics.com" class="painlessanalytics-logo-a" target="_blank">
-                    <img alt="<?php echo __('Painless Analytics') ?>"
-                     title="<?php echo __('Painless Analytics') ?>"
+                    <img alt="<?php echo esc_attr( __('Painless Analytics') ) ?>"
+                     title="<?php echo esc_attr( __('Painless Analytics') ) ?>"
                      class="painlessanalytics-logo" 
                      width="225" 
                      height="72" 
