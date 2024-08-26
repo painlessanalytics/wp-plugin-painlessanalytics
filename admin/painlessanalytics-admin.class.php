@@ -92,7 +92,7 @@
             if( !empty($_SERVER['HTTP_HOST']) ) {
                 $httpHost = $_SERVER['HTTP_HOST'];
             } else {
-                $httpHost = parse_url( get_site_url(), PHP_URL_HOST );
+                $httpHost = wp_parse_url( get_site_url(), PHP_URL_HOST );
             }
             $postArgs = array();
             $postArgs['code'] = $linkCode;
