@@ -11,7 +11,7 @@
  * Plugin Name:       Painless Analytics
  * Plugin URI:        https://www.painlessanalytics.com/painless-analytics-wordpress-plugin/
  * Description:       Simplified web analytics focused on the metrics that matter most.
- * Version:           0.9.0
+ * Version:           0.9.1
  * Requires at least: 5.2
  * Requires PHP:      5.4
  * Author:            Painless Analytics

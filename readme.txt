@@ -5,7 +5,7 @@ Donate link: https://www.painlessanalytics.com
 Requires at least: 5.5
 Tested up to: 6.6.1
 Requires PHP: 5.4
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
