@@ -11,12 +11,12 @@
  * Plugin Name:       Painless Analytics
  * Plugin URI:        https://www.painlessanalytics.com/painless-analytics-wordpress-plugin/
  * Description:       Simplified web analytics focused on the metrics that matter most.
- * Version:           0.9.1
+ * Version:           0.9.2
  * Requires at least: 5.2
  * Requires PHP:      5.4
  * Author:            Painless Analytics
  * Author URI:        https://www.painlessanalytics.com
- * Text Domain:       painlessanalytics
+ * Text Domain:       painless-analytics
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */

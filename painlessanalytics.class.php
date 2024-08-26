@@ -17,7 +17,7 @@ class painlessAnalytics {
     * Initialize plugin
     */
     public function init() {
-        load_plugin_textdomain( 'painlessanalytics' ); // Support translation
+        load_plugin_textdomain( 'painless-analytics' ); // Support translation
         
         // See if we have an api URL in the settings...
         $this->settings = get_option('painlessanalytics');

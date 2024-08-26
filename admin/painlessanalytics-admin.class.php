@@ -60,7 +60,7 @@
 
         if ( !is_array( $response ) || is_wp_error( $response ) ) {
             if( !is_wp_error($response)) {
-                $response = new WP_Error( 'http_error', __('Unknown HTTP error occurred', 'painlessanalytics') );
+                $response = new WP_Error( 'http_error', __('Unknown HTTP error occurred', 'painless-analytics') );
             }
     
             return $response; // return WP_Error
@@ -116,7 +116,7 @@
                 }
             }
             else {
-                $errorMessage = __('The provided Painless Analytics Link Code is invalid.', 'painlessanalytics');
+                $errorMessage = __('The provided Painless Analytics Link Code is invalid.', 'painless-analytics');
             }
 
             if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' ) {
@@ -125,7 +125,7 @@
             } else if( !empty($jsonResults['message'])) {
                 $errorMessage = $jsonResults['message'];
             } else {
-                $errorMessage = __('An error occurred during linking.', 'painlessanalytics');
+                $errorMessage = __('An error occurred during linking.', 'painless-analytics');
             }
 
             // If there are no errors, sweet!
@@ -133,7 +133,7 @@
                 add_settings_error(
                     'painlessanalytics_message',
                     esc_attr( 'settings_updated' ),
-                    __('Painless Analytics is now enabled on your site. Please clear your site cache now if applicable.', 'painlessanalytics'),
+                    __('Painless Analytics is now enabled on your site. Please clear your site cache now if applicable.', 'painless-analytics'),
                     'updated'
                 );
             } else {
@@ -155,7 +155,7 @@
     private function initHooks() {
         $pluginDir = painlessAnalytics::getInstance()->pluginDir();
         add_action('admin_init', array($this, 'admin_init'));
-        register_activation_hook( $pluginDir . 'painlessanalytics.php', array( $this, 'register_activation_hook'));
+        register_activation_hook( $pluginDir . 'painless-analytics.php', array( $this, 'register_activation_hook'));
         add_action('admin_menu', array( $this, 'admin_menu'));
         add_action('admin_head', array( $this, 'admin_head'));
         add_action('admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -197,7 +197,7 @@
     * admin_menu()
     */
     public function admin_menu() {
-        add_options_page(__('Simplified web metrics', 'painlessanalytics'), __('Painless Analytics', 'painlessanalytics'), 'manage_options', 'painlessanalytics', array($this, 'painlessanalytics_settings'));
+        add_options_page(__('Simplified web metrics', 'painless-analytics'), __('Painless Analytics', 'painless-analytics'), 'manage_options', 'painlessanalytics', array($this, 'painlessanalytics_settings'));
     }
 
     /*
@@ -221,7 +221,7 @@
     */
     public function plugin_action_links( $links ) {
         $url = $this->getSettingsPageUrl();
-        $settings_link = '<a href="'.esc_url( $url ).'">'.__('Settings', 'painlessanalytics').'</a>';
+        $settings_link = '<a href="'.esc_url( $url ).'">'.__('Settings', 'painless-analytics').'</a>';
         array_unshift( $links, $settings_link );
         return $links;
     }
@@ -265,7 +265,7 @@
         $pluginUrl = painlessAnalytics::getInstance()->pluginUrl();
 		if ( $file == plugin_basename( $pluginUrl . '/painlessanalytics.php' ) ) {
             $url = $this->getSettingsPageUrl();
-			$links[] = '<a href="' . esc_url( $url ) . '">'.esc_html__( 'Settings' , 'painlessanalytics').'</a>';
+			$links[] = '<a href="' . esc_url( $url ) . '">'.esc_html__( 'Settings' , 'painless-analytics').'</a>';
 		}
 
 		return $links;
