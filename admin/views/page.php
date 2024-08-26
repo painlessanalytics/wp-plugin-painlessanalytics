@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <?php if( !painlessAnalytics::getInstance()->getTrackUrl() ) { ?>
+    <?php if( !painlessAnalytics::getInstance()->getApiUrl() ) { ?>
     <div class="painlessanalytics-hero">
         <div class="painlessanalytics-body">
             <div class="painlessanalytics-container">

@@ -8,7 +8,7 @@
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       Painless Analytics - simplified web metrics
+ * Plugin Name:       Painless Analytics
  * Plugin URI:        https://www.painlessanalytics.com/painless-analytics-wordpress-plugin/
  * Description:       Simplified web analytics focused on the metrics that matter most.
  * Version:           0.9.0

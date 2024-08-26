@@ -60,6 +60,10 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
+= 0.9.1 =
+* 08/26/2024
+* Added new logic to setup embed code by using a Link Code available from Painless Analytics
+
 = 0.9.0 =
 Initial release of Painless Analytics plugin
 

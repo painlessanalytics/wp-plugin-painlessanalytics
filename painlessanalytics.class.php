@@ -3,6 +3,10 @@
  * painlessAnalytics class
  */
 
+if( !defined('PAINLESSANALYTICS_API_URL')) {
+    define('PAINLESSANALYTICS_API_URL', 'https://api.painlessanalytics.com');
+}
+
 class painlessAnalytics {
 
     private $settings = null;
@@ -15,7 +19,7 @@ class painlessAnalytics {
     public function init() {
         load_plugin_textdomain( 'painlessanalytics' ); // Support translation
         
-        // See if we have a tracking code in the settings...
+        // See if we have an api URL in the settings...
         $this->settings = get_option('painlessanalytics');
         $this->initHooks();
     }
@@ -32,9 +36,9 @@ class painlessAnalytics {
     * wp_head()
     */
     function wp_head() {
-        if( $this->getTrackUrl() ) {
+        if( $this->getApiUrl() ) {
             $args = array(
-                'track_url'=>$this->getTrackUrl()
+                'api_url'=>$this->getApiUrl()
             );
             $this->view('wp_head', $args);
         }
@@ -75,32 +79,32 @@ class painlessAnalytics {
     }
 
     /*
-    * getTrackUrl()
+    * getApiUrl()
     */
-    public function getTrackUrl() {
+    public function getApiUrl() {
 
-        if( !empty($this->settings['track_url'])) {
-            return $this->settings['track_url'];
+        if( !empty($this->settings['api_url'])) {
+            return $this->settings['api_url'];
         }
         
         return false;
     }
 
     /*
-    * getAdminTrackUrl()
+    * getAdminApiUrl()
     */
-    public function getAdminTrackUrl() {
+    public function getAdminApiUrl() {
 
-        if( empty($this->settings['track_admin']) ) {
+        if( empty($this->settings['admin_mode']) ) {
             return false; // Default, if not set then don't track the admin area
         }
 
-        if( !empty($this->settings['track_url']) && empty($this->settings['track_admin_separately']) ) {
-            return $this->settings['track_url'];
+        if( !empty($this->settings['api_url']) && empty($this->settings['admin_separately']) ) {
+            return $this->settings['api_url'];
         }
 
-        if( !empty($this->settings['admin_track_url']) && !empty($this->settings['track_admin_separately']) ) {
-            return $this->settings['admin_track_url'];
+        if( !empty($this->settings['admin_api_url']) && !empty($this->settings['admin_separately']) ) {
+            return $this->settings['admin_api_url'];
         }
         
         return false;

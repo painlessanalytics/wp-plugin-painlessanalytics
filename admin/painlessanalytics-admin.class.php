@@ -78,42 +78,72 @@
     * sanitizeSettings($value)
     */
     public static function sanitizeSettings($value) {
+
         $errorMessage = '';
-        if( empty($value['embed'])) $value['embed'] = ''; // Initialize value
-        //$value['embed'] = sanitize_textarea_field($value['embed']); // We do not want to do this, but we will not use this except to parse the URL out of it
-
-        $trackUrl = self::getTrackUrlFromEmbed($value['embed']);
-
-        if( $trackUrl ) {
-            // Test the tracking URL, if it is valid then save it, otherwise let them know it is not valid and clear the track_url value
-            $testResults = self::testTrackUrl($trackUrl);
-            if( is_wp_error($testResults) ) {
-                /* translators: The placeholder is a WP_Error message. */
-                $errorMessage = sprintf(__('An error occurred. %s', 'painlessanalytics'), $testResults->get_error_message() );
-            } else if( $testResults === false ) {
-                $errorMessage = __('The provided Painless Analytics embed code is invalid.', 'painlessanalytics');
-            } else {
-                $value['track_url'] = $trackUrl; // Track URL is good!
-            }
-        } else {
-            $errorMessage = __('The provided Painless Analytics embed code is invalid.', 'painlessanalytics');
+        $lastSettings = get_option('painlessanalytics');
+        $linkCode = $value['link_code'];
+        $value['api_url'] = ( !empty($lastSettings['api_url'])? $lastSettings['api_url'] : '');
+        if( empty($linkCode) ) {
+            $value['api_url'] = '';
         }
 
-        // If there are no errors, sweet!
-        if( empty($errorMessage) ) {
-            add_settings_error(
-                'painlessanalytics_message',
-                esc_attr( 'settings_updated' ),
-                __('Painless Analytics is now enabled on your website. Please clear your site cache now if applicable.', 'painlessanalytics'),
-                'updated'
-            );
-        } else {
-            add_settings_error(
-                'painlessanalytics_message',
-                esc_attr( 'settings_updated' ),
-                $errorMessage,
-                'error'
-            );
+        if ( $linkCode ) {
+            $httpHost = '';
+            if( !empty($_SERVER['HTTP_HOST']) ) {
+                $httpHost = $_SERVER['HTTP_HOST'];
+            } else {
+                $httpHost = parse_url( get_site_url(), PHP_URL_HOST );
+            }
+            $postArgs = array();
+            $postArgs['code'] = $linkCode;
+            $postArgs['return'] = 'api_url';
+            if( !empty($httpHost) ) {
+                $postArgs['register_host'] = $httpHost;
+            }
+            
+            // With this link code we can 
+            $url = PAINLESSANALYTICS_API_URL.'/link';
+            $response = wp_remote_post( $url, array(
+                'body'    => $postArgs
+            ) );
+            
+            $jsonResults = array();
+            if( !is_wp_error( $response ) ) {
+
+                $body = wp_remote_retrieve_body( $response );
+                if(!is_wp_error( $body ) ) {
+                    $jsonResults = json_decode( $body, true );
+                }
+            }
+            else {
+                $errorMessage = __('The provided Painless Analytics Link Code is invalid.', 'painlessanalytics');
+            }
+
+            if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' ) {
+                $value['api_url'] = $jsonResults['data']['results']['api_url'];
+                $value['hostname'] = $httpHost;
+            } else if( !empty($jsonResults['message'])) {
+                $errorMessage = $jsonResults['message'];
+            } else {
+                $errorMessage = __('An error occurred during linking.', 'painlessanalytics');
+            }
+
+            // If there are no errors, sweet!
+            if( empty($errorMessage) ) {
+                add_settings_error(
+                    'painlessanalytics_message',
+                    esc_attr( 'settings_updated' ),
+                    __('Painless Analytics is now enabled on your site. Please clear your site cache now if applicable.', 'painlessanalytics'),
+                    'updated'
+                );
+            } else {
+                add_settings_error(
+                    'painlessanalytics_message',
+                    esc_attr( 'settings_updated' ),
+                    $errorMessage,
+                    'error'
+                );
+            }
         }
 
         return $value;
@@ -200,9 +230,9 @@
     * admin_head()
     */
     public function admin_head() {
-        if( painlessAnalytics::getInstance()->getAdminTrackUrl() ) {
+        if( painlessAnalytics::getInstance()->getAdminApiUrl() ) {
             $args = array(
-                'track_url'=>painlessAnalytics::getInstance()->getAdminTrackUrl()
+                'api_url'=>painlessAnalytics::getInstance()->getAdminApiUrl()
             );
             painlessAnalytics::getInstance()->view('wp_head', $args);
         }
