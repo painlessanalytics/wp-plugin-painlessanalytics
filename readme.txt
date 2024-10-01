@@ -5,7 +5,7 @@ Donate link: https://www.painlessanalytics.com
 Requires at least: 5.5
 Tested up to: 6.6.1
 Requires PHP: 5.4
-Stable tag: 0.9.2
+Stable tag: 0.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,15 @@ Simplified web analytics focused on the metrics that matter most.
 
 **[Painless Analytics](https://www.painlessanalytics.com/)** is a new web analytics service that reports the metrics that matter the most.
 
+**Note:** This plugin interacts with the **[Painless Analytics](https://www.painlessanalytics.com/)** API to retrieve and include analytics tracking code on your website. By using this plugin, your site communicates with the Painless Analytics service. Please refer to their [Privacy Policy](https://www.painlessanalytics.com/company/legal/privacy/) and [Terms of Use](https://www.painlessanalytics.com/company/legal/terms/) to learn more.
+
 **An account (FREE or paid) from [Painless Analytics](https://www.painlessanalytics.com/) is required to use this plugin** 
+
+== Additional Info ==
+
+This plugin simplifies the implementation of Painless Analytics web analytics service onto a website. This plugin requires a valid Painless Analytics *link code* in order to function.
+
+Painless Analytics does not track personal identifiable information (PII) or use cookies. Painless Analytics JavaScript code is loaded asynchronously, it does not interfere with other page operations or cause page loading delays.
 
 == Installation ==
 
@@ -59,6 +67,10 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 3. Painless Analytics is now enabled on your site
 
 == Changelog ==
+
+= 0.9.3 =
+* 10/01/2024
+* Added documentation of use of a 3rd Party or external service (Painless Analytics)
 
 = 0.9.2 =
 * 08/26/2024

@@ -5,6 +5,8 @@
 
  class painlessAnalyticsAdmin {
 
+    private $apiUrl = 'https://api.painlessanalytics.com';
+
     /*
     * init()
     */
@@ -102,7 +104,7 @@
             }
             
             // With this link code we can 
-            $url = PAINLESSANALYTICS_API_URL.'/link';
+            $url = $this->apiUrl .'/link';
             $response = wp_remote_post( $url, array(
                 'body'    => $postArgs
             ) );

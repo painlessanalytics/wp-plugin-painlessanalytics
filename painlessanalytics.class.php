@@ -3,10 +3,6 @@
  * painlessAnalytics class
  */
 
-if( !defined('PAINLESSANALYTICS_API_URL')) {
-    define('PAINLESSANALYTICS_API_URL', 'https://api.painlessanalytics.com');
-}
-
 class painlessAnalytics {
 
     private $settings = null;
