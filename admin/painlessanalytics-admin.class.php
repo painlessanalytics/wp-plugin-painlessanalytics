@@ -38,7 +38,13 @@
 			}
         }
 
-        register_setting('painlessanalytics_settings_group', 'painlessanalytics', array('painlessAnalyticsAdmin', 'sanitizeSettings') ); // multiple settings in Array
+        $args = array(
+			'type' => 'array', 
+			'sanitize_callback' => array($this, 'sanitizeSettings'),
+			'default' => array(),
+			);
+
+        register_setting('painlessanalytics_settings_group', 'painlessanalytics', $args ); // multiple settings in Array
     }
 
     public static function getTrackUrlFromEmbed($embed) {
@@ -79,7 +85,7 @@
     /*
     * sanitizeSettings($value)
     */
-    public static function sanitizeSettings($value) {
+    public function sanitizeSettings($value) {
 
         $errorMessage = '';
         $lastSettings = get_option('painlessanalytics');
@@ -126,7 +132,7 @@
                 $value['hostname'] = $httpHost;
             } else if( !empty($jsonResults['message'])) {
                 $errorMessage = $jsonResults['message'];
-            } else {
+            } else if( empty($errorMessage) ) {
                 $errorMessage = __('An error occurred during linking.', 'painless-analytics');
             }
 

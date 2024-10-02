@@ -71,6 +71,9 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 = 0.9.3 =
 * 10/01/2024
 * Added documentation of use of a 3rd Party or external service (Painless Analytics)
+* Moved API url to be a private member variable of the Painless Analytics class
+* Fixed Internationalization issue: text domain not set in the header.php
+* Made sanitizeSettings() a member function (no longer static) to reference member variables of object
 
 = 0.9.2 =
 * 08/26/2024
