@@ -2,6 +2,9 @@
 /*
 * wp_head content
 */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 ?>
 <!-- Painless Analytics Start -->
 <script>(function(u,t){

@@ -3,6 +3,8 @@
  * painlessAnalytics class
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 class painlessAnalytics {
 
     private $settings = null;

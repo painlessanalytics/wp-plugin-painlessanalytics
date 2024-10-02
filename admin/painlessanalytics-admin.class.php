@@ -3,7 +3,9 @@
  * Painless Analytics wp-admin
  */
 
- class painlessAnalyticsAdmin {
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+class painlessAnalyticsAdmin {
 
     private $apiUrl = 'https://api.painlessanalytics.com';
 

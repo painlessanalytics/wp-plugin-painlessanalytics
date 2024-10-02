@@ -3,6 +3,8 @@
 * Uninstall for Painless Analytics plugin
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 if (!defined('WP_UNINSTALL_PLUGIN')) {
     die('Access denied');
 }

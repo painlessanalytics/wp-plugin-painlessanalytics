@@ -1,4 +1,11 @@
-<div id="painlessanalytics-plugin-container">
+<?php
+/*
+ * admin/views/page.php
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+?><div id="painlessanalytics-plugin-container">
     <div class="painlessanalytics-header">
         <div class="painlessanalytics-body">
             <div class="painlessanalytics-container">

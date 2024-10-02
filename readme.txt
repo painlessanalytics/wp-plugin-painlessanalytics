@@ -76,7 +76,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 * Made `sanitizeSettings()` a member function (no longer static) to reference member variables of object
 * Added `sanitize_text_field()` to `$_SERVER['HTTP_HOST']`
 * Standardized on `painlessanalytics_` prefix for functions and global object names
-
+* For security, all files now `exit()` if they are accessed directly
 
 = 0.9.2 =
 * 08/26/2024
