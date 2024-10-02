@@ -77,6 +77,8 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 * Added `sanitize_text_field()` to `$_SERVER['HTTP_HOST']`
 * Standardized on `painlessanalytics_` prefix for functions and global object names
 * For security, all files now `exit()` if they are accessed directly
+* Confirmed the settings page form is using appropriate nonce code
+* Replaced `dirname(__FILE__)` calls to use defines `PAINLESSANALYTICS_PLUGIN_PATH` and `PAINLESSANALYTICS_PLUGIN_URL` in the core plugin file
 
 = 0.9.2 =
 * 08/26/2024

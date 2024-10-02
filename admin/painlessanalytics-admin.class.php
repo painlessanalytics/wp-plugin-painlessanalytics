@@ -218,10 +218,7 @@ class painlessAnalyticsAdmin {
         if ( in_array( $GLOBALS['hook_suffix'], array(
 			'settings_page_painlessanalytics' // settings page
 		) ) ) {
-
-            $cssPath = 'css/styles.css';
-            
-            wp_register_style( 'painlessanalytics-admin', plugin_dir_url( __FILE__ ) . $cssPath, array(), filemtime( dirname( __FILE__ ) . '/' . $cssPath ) );
+            wp_register_style( 'painlessanalytics-admin', PAINLESSANALYTICS_PLUGIN_URL . 'admin/css/styles.css', array(), filemtime( PAINLESSANALYTICS_PLUGIN_PATH . 'admin/css/styles.css' ) );
             wp_enqueue_style( 'painlessanalytics-admin' );
         }
     }
@@ -286,7 +283,7 @@ class painlessAnalyticsAdmin {
     */
     public static function view( $name, $args = array() ) {
 
-        $file = dirname(__FILE__) . '/views/'. $name . '.php';
+        $file = PAINLESSANALYTICS_PLUGIN_PATH . 'admin/views/'. $name . '.php';
 		
         if( file_exists($file) ) {
             include( $file );

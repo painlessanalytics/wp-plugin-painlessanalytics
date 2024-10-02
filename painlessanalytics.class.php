@@ -46,7 +46,7 @@ class painlessAnalytics {
     * Load a view to display on the public side of site
     */
     public function view( $name, array $args = array() ) {
-        $file = dirname(__FILE__) . '/views/'. $name . '.php';
+        $file = PAINLESSANALYTICS_PLUGIN_PATH . 'views/'. $name . '.php';
         if( file_exists($file) ) {
 		    include( $file ); }
 	}
