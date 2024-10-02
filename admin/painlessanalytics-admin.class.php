@@ -98,7 +98,7 @@
         if ( $linkCode ) {
             $httpHost = '';
             if( !empty($_SERVER['HTTP_HOST']) ) {
-                $httpHost = $_SERVER['HTTP_HOST'];
+                $httpHost = sanitize_text_field($_SERVER['HTTP_HOST']);
             } else {
                 $httpHost = wp_parse_url( get_site_url(), PHP_URL_HOST );
             }

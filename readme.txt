@@ -74,6 +74,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 * Moved API url to be a private member variable of the Painless Analytics class
 * Fixed Internationalization issue: text domain not set in the header.php
 * Made sanitizeSettings() a member function (no longer static) to reference member variables of object
+* Added sanitize_text_field() to $_SERVER['HTTP_HOST']
 
 = 0.9.2 =
 * 08/26/2024
