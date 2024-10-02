@@ -175,11 +175,11 @@
     * Singleton
     */
     public static function getInstance() {
-        if( isset($GLOBALS['plugin_painlessanalyticsadmin']) && is_object($GLOBALS['plugin_painlessanalyticsadmin']) )
-            return $GLOBALS['plugin_painlessanalyticsadmin'];
+        if( isset($GLOBALS['painlessanalytics_plugin_admin']) && is_object($GLOBALS['painlessanalytics_plugin_admin']) )
+            return $GLOBALS['painlessanalytics_plugin_admin'];
 
-        $GLOBALS['plugin_painlessanalyticsadmin'] = new painlessAnalyticsAdmin();
-        return $GLOBALS['plugin_painlessanalyticsadmin'];
+        $GLOBALS['painlessanalytics_plugin_admin'] = new painlessAnalyticsAdmin();
+        return $GLOBALS['painlessanalytics_plugin_admin'];
     }
 
     /*

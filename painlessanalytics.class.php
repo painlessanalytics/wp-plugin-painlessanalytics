@@ -53,11 +53,11 @@ class painlessAnalytics {
     * Singleton
     */
     public static function getInstance() {
-        if( isset($GLOBALS['plugin_painlessanalytics']) && is_object($GLOBALS['plugin_painlessanalytics']) )
-            return $GLOBALS['plugin_painlessanalytics'];
+        if( isset($GLOBALS['painlessanalytic_plugin']) && is_object($GLOBALS['painlessanalytic_plugin']) )
+            return $GLOBALS['painlessanalytic_plugin'];
 
-        $GLOBALS['plugin_painlessanalytics'] = new painlessAnalytics();
-        return $GLOBALS['plugin_painlessanalytics'];
+        $GLOBALS['painlessanalytic_plugin'] = new painlessAnalytics();
+        return $GLOBALS['painlessanalytic_plugin'];
     }
 
     /*

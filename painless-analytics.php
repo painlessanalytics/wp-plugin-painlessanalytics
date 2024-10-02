@@ -11,7 +11,7 @@
  * Plugin Name:       Painless Analytics
  * Plugin URI:        https://www.painlessanalytics.com/painless-analytics-wordpress-plugin/
  * Description:       Simplified web analytics focused on the metrics that matter most.
- * Version:           0.9.2
+ * Version:           0.9.3
  * Requires at least: 5.2
  * Requires PHP:      5.4
  * Author:            Painless Analytics
@@ -27,11 +27,11 @@ if( !class_exists('painlessAnalytics') ) {
     function painlessanalytics_init() {
         painlessAnalytics::getInstance()->init();
     }
-    add_action( 'init', 'painlessanalytics_init' );
+    add_action('init', 'painlessanalytics_init');
 }
 
 if ( is_admin() && !class_exists('painlessAnalyticsAdmin') ) { // we are in admin mode
-    require_once(dirname(__FILE__) . '/admin/painlessanalytics-admin.class.php'); // Admin page
+    require_once dirname(__FILE__) . '/admin/painlessanalytics-admin.class.php'; // Admin page
 }
 
 // eof

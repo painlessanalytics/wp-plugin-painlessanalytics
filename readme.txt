@@ -73,8 +73,10 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 * Added documentation of use of a 3rd Party or external service (Painless Analytics)
 * Moved API url to be a private member variable of the Painless Analytics class
 * Fixed Internationalization issue: text domain not set in the header.php
-* Made sanitizeSettings() a member function (no longer static) to reference member variables of object
-* Added sanitize_text_field() to $_SERVER['HTTP_HOST']
+* Made `sanitizeSettings()` a member function (no longer static) to reference member variables of object
+* Added `sanitize_text_field()` to `$_SERVER['HTTP_HOST']`
+* Standardized on `painlessanalytics_` prefix for functions and global object names
+
 
 = 0.9.2 =
 * 08/26/2024
