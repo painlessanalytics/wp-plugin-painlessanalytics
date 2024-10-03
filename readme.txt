@@ -68,6 +68,10 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
+= 0.9.4 =
+* 10/03/2024
+* Added `wp_unslash()` when sanitizing `HTTP_HOST` per instruction from the official Plugin Check plugin
+
 = 0.9.3 =
 * 10/03/2024
 * Added documentation of use of a 3rd Party or external service (Painless Analytics)
