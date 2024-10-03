@@ -3,7 +3,11 @@
  * Painless Analytics wp-admin
  */
 
- class painlessAnalyticsAdmin {
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+class painlessAnalyticsAdmin {
+
+    private $apiUrl = 'https://api.painlessanalytics.com';
 
     /*
     * init()
@@ -36,7 +40,13 @@
 			}
         }
 
-        register_setting('painlessanalytics_settings_group', 'painlessanalytics', array('painlessAnalyticsAdmin', 'sanitizeSettings') ); // multiple settings in Array
+        $args = array(
+			'type' => 'array', 
+			'sanitize_callback' => array($this, 'sanitizeSettings'),
+			'default' => array(),
+			);
+
+        register_setting('painlessanalytics_settings_group', 'painlessanalytics', $args ); // multiple settings in Array
     }
 
     public static function getTrackUrlFromEmbed($embed) {
@@ -77,7 +87,7 @@
     /*
     * sanitizeSettings($value)
     */
-    public static function sanitizeSettings($value) {
+    public function sanitizeSettings($value) {
 
         $errorMessage = '';
         $lastSettings = get_option('painlessanalytics');
@@ -90,7 +100,7 @@
         if ( $linkCode ) {
             $httpHost = '';
             if( !empty($_SERVER['HTTP_HOST']) ) {
-                $httpHost = $_SERVER['HTTP_HOST'];
+                $httpHost = sanitize_text_field($_SERVER['HTTP_HOST']);
             } else {
                 $httpHost = wp_parse_url( get_site_url(), PHP_URL_HOST );
             }
@@ -102,7 +112,7 @@
             }
             
             // With this link code we can 
-            $url = PAINLESSANALYTICS_API_URL.'/link';
+            $url = $this->apiUrl .'/link';
             $response = wp_remote_post( $url, array(
                 'body'    => $postArgs
             ) );
@@ -119,12 +129,12 @@
                 $errorMessage = __('The provided Painless Analytics Link Code is invalid.', 'painless-analytics');
             }
 
-            if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' ) {
-                $value['api_url'] = $jsonResults['data']['results']['api_url'];
+            if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' && !empty($jsonResults['data']['results']['api_url']) ) {
+                $value['api_url'] = sanitize_url($jsonResults['data']['results']['api_url']);
                 $value['hostname'] = $httpHost;
             } else if( !empty($jsonResults['message'])) {
-                $errorMessage = $jsonResults['message'];
-            } else {
+                $errorMessage = sanitize_text_field($jsonResults['message']);
+            } else if( empty($errorMessage) ) {
                 $errorMessage = __('An error occurred during linking.', 'painless-analytics');
             }
 
@@ -167,11 +177,11 @@
     * Singleton
     */
     public static function getInstance() {
-        if( isset($GLOBALS['plugin_painlessanalyticsadmin']) && is_object($GLOBALS['plugin_painlessanalyticsadmin']) )
-            return $GLOBALS['plugin_painlessanalyticsadmin'];
+        if( isset($GLOBALS['painlessanalytics_plugin_admin']) && is_object($GLOBALS['painlessanalytics_plugin_admin']) )
+            return $GLOBALS['painlessanalytics_plugin_admin'];
 
-        $GLOBALS['plugin_painlessanalyticsadmin'] = new painlessAnalyticsAdmin();
-        return $GLOBALS['plugin_painlessanalyticsadmin'];
+        $GLOBALS['painlessanalytics_plugin_admin'] = new painlessAnalyticsAdmin();
+        return $GLOBALS['painlessanalytics_plugin_admin'];
     }
 
     /*
@@ -208,10 +218,7 @@
         if ( in_array( $GLOBALS['hook_suffix'], array(
 			'settings_page_painlessanalytics' // settings page
 		) ) ) {
-
-            $cssPath = 'css/styles.css';
-            
-            wp_register_style( 'painlessanalytics-admin', plugin_dir_url( __FILE__ ) . $cssPath, array(), filemtime( dirname( __FILE__ ) . '/' . $cssPath ) );
+            wp_register_style( 'painlessanalytics-admin', PAINLESSANALYTICS_PLUGIN_URL . 'admin/css/styles.css', array(), filemtime( PAINLESSANALYTICS_PLUGIN_PATH . 'admin/css/styles.css' ) );
             wp_enqueue_style( 'painlessanalytics-admin' );
         }
     }
@@ -276,7 +283,7 @@
     */
     public static function view( $name, $args = array() ) {
 
-        $file = dirname(__FILE__) . '/views/'. $name . '.php';
+        $file = PAINLESSANALYTICS_PLUGIN_PATH . 'admin/views/'. $name . '.php';
 		
         if( file_exists($file) ) {
             include( $file );

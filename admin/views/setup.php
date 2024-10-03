@@ -1,8 +1,14 @@
 <?php
-    $painlessanalyticsSettings = get_option('painlessanalytics');
-    $linkCode = !empty($painlessanalyticsSettings['link_code']) ? $painlessanalyticsSettings['link_code'] : '';
-    $hostname = !empty($painlessanalyticsSettings['hostname']) ? $painlessanalyticsSettings['hostname'] : '';
-    $enabled = painlessAnalytics::getInstance()->getApiUrl();
+/*
+ * admin/views/setup.php
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+$painlessanalyticsSettings = get_option('painlessanalytics');
+$linkCode = !empty($painlessanalyticsSettings['link_code']) ? $painlessanalyticsSettings['link_code'] : '';
+$hostname = !empty($painlessanalyticsSettings['hostname']) ? $painlessanalyticsSettings['hostname'] : '';
+$enabled = painlessAnalytics::getInstance()->getApiUrl();
 ?>
 <div class="painlessanalytics-form-setup">
   <?php if( empty($enabled) ) { // If not enabled, lets give them a better experience ?>
