@@ -69,7 +69,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 == Changelog ==
 
 = 0.9.3 =
-* 10/01/2024
+* 10/03/2024
 * Added documentation of use of a 3rd Party or external service (Painless Analytics)
 * Moved API url to be a private member variable of the Painless Analytics class
 * Fixed Internationalization issue: text domain not set in the header.php
