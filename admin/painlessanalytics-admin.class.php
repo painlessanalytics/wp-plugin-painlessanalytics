@@ -129,11 +129,11 @@ class painlessAnalyticsAdmin {
                 $errorMessage = __('The provided Painless Analytics Link Code is invalid.', 'painless-analytics');
             }
 
-            if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' ) {
-                $value['api_url'] = $jsonResults['data']['results']['api_url'];
+            if( !empty($jsonResults['status']) && $jsonResults['status'] == 'success' && !empty($jsonResults['data']['results']['api_url']) ) {
+                $value['api_url'] = sanitize_url($jsonResults['data']['results']['api_url']);
                 $value['hostname'] = $httpHost;
             } else if( !empty($jsonResults['message'])) {
-                $errorMessage = $jsonResults['message'];
+                $errorMessage = sanitize_text_field($jsonResults['message']);
             } else if( empty($errorMessage) ) {
                 $errorMessage = __('An error occurred during linking.', 'painless-analytics');
             }
