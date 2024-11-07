@@ -1,6 +1,6 @@
 name: Deploy to WordPress.org Repository
 
-  on:
+on:
   release:
     types: [released]
 
