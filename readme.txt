@@ -3,9 +3,9 @@ Contributors: amandato, painlessanalytics
 Tags: analytics, statistics, stats, metrics, traffic
 Donate link: https://www.painlessanalytics.com
 Requires at least: 5.5
-Tested up to: 6.6.1
+Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 0.9.8
+Stable tag: 0.9.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,8 +58,8 @@ Yes. Instead of installing this plugin you could add Painless Analytics to GTM, 
 Painless Analytics embed codes are available at [painlessanalytics.com](https://www.painlessanalytics.com/). FREE and paid plans are available. Each embed code is unique to each website registered at Painless Analytics.
 
 = Does this replace other web analytics? =
-No! If you already have analytics setup with other tools or services we strongly suggest if you keep you keep them in place. 
-Painless Analytics is intended to make your life easier, but if it doesn't help you, then no worries. 
+No! If you already have analytics setup with other tools or services we strongly suggest you them in place. 
+Painless Analytics is intended to make your life easier, but if it doesn't help you, no worries. 
 
 == Screenshots ==
 1. Painless Analytics initial setup
@@ -68,7 +68,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
-= 0.9.8 =
+= 0.9.9 =
 * 11/07/2024
 * Setup GitHub to deploy to svn
 
