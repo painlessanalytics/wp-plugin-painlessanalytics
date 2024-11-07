@@ -68,6 +68,11 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
+
+= 0.9.5 =
+* 11/06/2024
+* Added banner and icon images for the assets folder.
+
 = 0.9.4 =
 * 10/03/2024
 * Added `wp_unslash()` when sanitizing `HTTP_HOST` per instruction from the official Plugin Check plugin
