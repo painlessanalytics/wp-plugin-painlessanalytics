@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Sync Branch
-        uses: connor-baer/action-sync-branch@v1
+        uses: connor-baer/action-sync-branch@v1.1.0
         with:
           branch: develop
           token: ${{ secrets.GITHUB_TOKEN }}
