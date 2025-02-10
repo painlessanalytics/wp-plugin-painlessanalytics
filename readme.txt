@@ -68,7 +68,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
-= 0.9.10 =
+= 0.9.11 =
 * 02/09/2025
 * Tested with 6.7.1
 
