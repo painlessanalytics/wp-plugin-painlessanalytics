@@ -1,11 +1,11 @@
 === Painless Analytics ===
 Contributors: amandato, painlessanalytics
-Tags: analytics, statistics, stats, metrics, traffic
+Tags: analytics, statistics, stats, metrics, painless analytics
 Donate link: https://www.painlessanalytics.com
 Requires at least: 5.5
-Tested up to: 6.7.1
+Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 0.9.12
+Stable tag: 0.9.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,47 +68,13 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 
 == Changelog ==
 
-= 0.9.12 =
-* 02/09/2025
-* Tested with 6.7.1
+= 0.9.13 =
+* 2025-02-09
+* Tested with 6.8
 
-= 0.9.9 =
-* 11/07/2024
-* Setup GitHub to deploy to svn
+= Complete Changelog =
 
-= 0.9.5 =
-* 11/06/2024
-* Added banner and icon images for the assets folder.
-
-= 0.9.4 =
-* 10/03/2024
-* Added `wp_unslash()` when sanitizing `HTTP_HOST` per instruction from the official Plugin Check plugin
-
-= 0.9.3 =
-* 10/03/2024
-* Added documentation of use of a 3rd Party or external service (Painless Analytics)
-* Moved API url to be a private member variable of the Painless Analytics class
-* Fixed Internationalization issue: text domain not set in the header.php
-* Made `sanitizeSettings()` a member function (no longer static) to reference member variables of object
-* Added `sanitize_text_field()` to `$_SERVER['HTTP_HOST']`
-* Standardized on `painlessanalytics_` prefix for functions and global object names
-* For security, all files now `exit()` if they are accessed directly
-* Confirmed the settings page form is using appropriate nonce code
-* Replaced `dirname(__FILE__)` calls to use defines `PAINLESSANALYTICS_PLUGIN_PATH` and `PAINLESSANALYTICS_PLUGIN_URL` in the core plugin file
-
-= 0.9.2 =
-* 08/26/2024
-* Updated the text-domain to match new slug name _painless-analytics_
-
-= 0.9.1 =
-* 08/26/2024
-* Added new logic to setup embed code by using a Link Code available from Painless Analytics
-
-= 0.9.0 =
-Initial release of Painless Analytics plugin
-
-= Full Version History =
-Please see the changelog on Github.
+See the [changelog on GitHub.org](https://github.com/painlessanalytics/wp-plugin-painlessanalytics/blob/main/CHANGELOG.md).
 
 == Upgrade Notice ==
 None at this time.
