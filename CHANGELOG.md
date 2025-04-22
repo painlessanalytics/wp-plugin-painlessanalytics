@@ -1,5 +1,5 @@
-# Canonical Pages Changelog
-Canonical Pages WordPress plugin.
+# Painless Analytics Changelog
+[Painless Analytics WordPress plugin](https://www.painlessanalytics.com/resources/painless-analytics-wordpress-plugin/).
 
 All notable changes to this project will be documented in this file.
 
@@ -32,6 +32,11 @@ For example `2.0` will be used rather than `2.0.0`. Otherwise Semantic Versionin
 
 ## [Unreleased]
 TBD
+
+## [0.9.14] - 2025-04-21
+
+- Updated CHANGELOG.md (follow up after 0.9.13 release)
+- This version does not need released to WordPress.org
 
 ## [0.9.13] - 2025-04-21
 
