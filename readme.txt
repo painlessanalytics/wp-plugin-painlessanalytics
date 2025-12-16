@@ -72,7 +72,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 * 2025-12-16
 * Tested with WordPress 6.9
 
-= 0.9.14 = 
+= 0.9.14 =
 * 2025-04-21
 * Updated CHANGELOG.md (follow up after 0.9.13 release)
 * This version did not need to be released to WordPress.org
