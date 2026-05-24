@@ -3,9 +3,9 @@ Contributors: amandato, painlessanalytics
 Tags: analytics, statistics, stats, metrics, painless analytics
 Donate link: https://www.painlessanalytics.com
 Requires at least: 5.5
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.4
-Stable tag: 0.9.15
+Stable tag: 0.9.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,10 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 3. Painless Analytics is now enabled on your site
 
 == Changelog ==
+
+= 0.9.16 =
+* 2025-05-24
+* Tested with WordPress 7.0
 
 = 0.9.15 =
 * 2025-12-16
