@@ -4,16 +4,16 @@
  *
  * @package           Painless Analytics
  * @author            Your Name
- * @copyright         2024 Painless Analytics
+ * @copyright         2024-2026 Painless Analytics
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       Painless Analytics
  * Plugin URI:        https://www.painlessanalytics.com/painless-analytics-wordpress-plugin/
  * Description:       Simplified web analytics focused on the metrics that matter most.
- * Version:           0.9.15
+ * Version:           0.9.16
  * Requires at least: 5.5
- * Tested up to:      6.9
+ * Tested up to:      7.0
  * Requires PHP:      5.4
  * Author:            Painless Analytics
  * Author URI:        https://www.painlessanalytics.com
