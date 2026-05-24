@@ -69,7 +69,7 @@ Painless Analytics is intended to make your life easier, but if it doesn't help 
 == Changelog ==
 
 = 0.9.16 =
-* 2025-05-24
+* 2026-05-24
 * Tested with WordPress 7.0
 
 = 0.9.15 =
