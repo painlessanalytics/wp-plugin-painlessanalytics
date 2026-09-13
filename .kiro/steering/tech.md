@@ -1,7 +1,7 @@
 # Technology Stack
 
 ## Platform
-- **WordPress Plugin** (5.5+ required, tested up to 6.9)
+- **WordPress Plugin** (5.5+ required, tested up to 7.1)
 - **PHP**: 5.4+ minimum
 - **License**: GPL v2 or later
 
@@ -35,5 +35,5 @@ No build process required - standard WordPress plugin deployment:
 
 ## Testing
 - Manual testing in WordPress environment
-- Test with WordPress versions 5.5 through 6.9
+- Test with WordPress versions 5.5 through 7.1
 - Verify PHP 5.4+ compatibility
